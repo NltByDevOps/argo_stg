@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: nltstg
+spec:
+    selector:
+        matchLabels:
+            app: nltstg
+    replicas: 2
+    template:
+        metadata:
+            labels:
+                app: nltstg
+        spec:
+            containers:
+                - name: nltstg
+                  image: nanajanashia/argocd-app:1.2
+                  ports:
+                      - containerPort: 8080
